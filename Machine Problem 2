@@ -1,51 +1,117 @@
+// Aquino, Elijah P. 
+
+// Javier, James P.
+
+// Adonis, Karl S.
+
+// Machine Problem 2
+
+
+
 #include <iostream>
+
 #include <conio.h>
+
 #include<string.h>
+
 #include<iomanip>
+
 #include <iostream>
+
 #include <cmath>
+
 #define PI 3.14159265
+
+
+
 using namespace std;
+
+
+
 double angle(double a,double b,double c)
+
 {
-double theta = acos((pow(a,2)+pow(b,2)-pow(c,2))/(2*a*b))*180/PI;
-return theta;
+
+    double theta = acos((pow(a,2)+pow(b,2)-pow(c,2))/(2*a*b))*180/PI;
+
+	return theta;
+
 }
-int main()
+
+    int main()
+
 {
-double a,b,c;
-double x,y,z;
-double pm, ar, p;
-cout<<"Please Enter Value of the First Side : "; cin>>a;
-cout<<"Please Enter Value of the Second Side : "; cin>>b;
-cout<<"Please Enter Value of the Third side : "; cin>>c;
-if(a+b>c && b+c>a && c+a>b){
-x=angle(b,c,a);
-y=angle(c,a,b);
-z=180-x-y;
-cout<<"Angle A : "<<x<<endl;
-cout<<"Angle B : "<<y<<endl;
-cout<<"Angle C: "<<z<<endl;
-if(a == b && a == c && b == c)
-cout<<"This is am Equilateral Triangle"<<endl;
-else if(a != b && a != c && b != c)
-cout<<"This is a Scalene Triangle"<<endl;
-else
-cout<<"This is an Isosceles Triangle"<<endl;
-pm = a + b + c;
-p=.5*pm;
-ar=sqrt(p *(p - a)*(p - b)*(p - c));
-cout<<"The Area of the Triangle is: "<<ar<<endl;
-cout<<"The Perimiter of the triangle is : "<<pm<<endl;
-if(x>0 && x<90 && y>0 && y<90 && z>0 && z<90)
-cout<<"This is an Acute Triangle"<<endl;
-else if(x>90 || y>90 || z>90)
-cout<<"This is an Obtuse Triangle"<<endl;
-else if(a*a+b*b==c*c || b*b+c*c==a*a || c*c+a*a==b*b)
-cout<<"This is a Right Triangle"<<endl;
-}
-else
-cout<<"This is Not a triangle";
-_getch ();
-return 0;
+
+    double a,b,c;
+
+	double x,y,z;
+
+	double pm, ar, p;
+
+	cout<<"Please Enter Value of the First Side : "; cin>>a;
+
+	cout<<"Please Enter Value of the Second Side : "; cin>>b;
+
+	cout<<"Please Enter Value of the Third side :  "; cin>>c;
+
+    if(a+b>c && b+c>a && c+a>b){
+
+	x=angle(b,c,a);
+
+	y=angle(c,a,b);
+
+	z=180-x-y;
+
+    cout<<"Angle A : "<<x<<endl;
+
+	cout<<"Angle B : "<<y<<endl;
+
+	cout<<"Angle C: "<<z<<endl;
+
+	if(a == b && a == c && b == c)
+
+	cout<<"This is am Equilateral Triangle"<<endl;
+
+	else if(a != b && a != c && b != c)
+
+	cout<<"This is a Scalene Triangle"<<endl;
+
+	else
+
+	cout<<"This is an Isosceles Triangle"<<endl;
+
+	pm = a + b + c;
+
+	p=.5*pm;
+
+	ar=sqrt(p *(p - a)*(p - b)*(p - c)); 
+
+	cout<<"The Area of the Triangle is: "<<ar<<endl;
+
+	cout<<"The Perimiter of the triangle is : "<<pm<<endl;
+
+	if(x>0 && x<90 && y>0 && y<90 && z>0 && z<90)
+
+	cout<<"This is an Acute Triangle"<<endl;
+
+	else if(x>90 || y>90 || z>90)
+
+	cout<<"This is an Obtuse Triangle"<<endl;
+
+    else if(a*a+b*b==c*c || b*b+c*c==a*a || c*c+a*a==b*b)
+
+	cout<<"This is a Right Triangle"<<endl;
+
+	}
+
+	else
+
+	
+
+	cout<<"This is Not a triangle";
+
+	_getch ();
+
+    return 0;
+
 }
