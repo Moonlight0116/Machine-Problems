@@ -1,0 +1,107 @@
+#include <iostream>
+#include <conio.h>
+#include<string.h>
+#include<iomanip>
+using namespace std;
+int main(){
+int totalstudents=50;
+string name[totalstudents];
+double q1[totalstudents], q2[totalstudents], q3[totalstudents], q4[totalstudents];
+double prelims[totalstudents], finals[totalstudents];
+double nb[totalstudents];
+double sw1[totalstudents], sw2[totalstudents], sw3[totalstudents], sw4[totalstudents], sw5[totalstudents], sw6[totalstudents], sw7[totalstudents], sw8[totalstudents], sw9[totalstudents], sw10[totalstudents];
+double bw[totalstudents];
+double bbw = 0;
+double fg[totalstudents];
+double tg[totalstudents];
+for(int i=0; i<totalstudents; i++){
+cout<<"Please Enter Student's Name : "; cin>>name[i];
+cout<<"Please Input the Student's Grades : ";
+cin>>q1[i]>>q2[i]>>q3[i]>>q4[i];
+cin>>prelims[i]>>finals[i];
+cin>>nb[i];
+cin>>sw1[i]>>sw2[i]>>sw3[i]>>sw4[i]>>sw5[i]>>sw6[i]>>sw7[i]>>sw8[i]>>sw9[i]>>sw10[i];
+cin>>bw[i];
+if(bbw < bw[i]){
+bbw = bw[i];
+}
+fg[i] += q1[i]/100*15;
+fg[i] += q2[i]/100*15;
+fg[i] += q3[i]/100*15;
+fg[i] += q4[i]/100*15;
+fg[i] += prelims[i]/100*20;
+fg[i] += finals[i]/100*20;
+fg[i] += nb[i]/100*1;
+fg[i] += sw1[i]/10*0.2;
+fg[i] += sw2[i]/10*0.2;
+fg[i] += sw3[i]/10*0.2;
+fg[i] += sw4[i]/10*0.2;
+fg[i] += sw5[i]/10*0.2;
+fg[i] += sw6[i]/10*0.2;
+fg[i] += sw7[i]/10*0.2;
+fg[i] += sw8[i]/10*0.2;
+fg[i] += sw9[i]/10*0.2;
+fg[i] += sw10[i]/10*0.2;
+}
+for(int i=0; i<totalstudents; i++){
+fg[i] += bw[i]/bbw*2;
+if(fg[i] >= 60.00 && fg[i] <= 64.44 ){
+tg[i] = 3.00;
+}
+else if(fg[i] >= 64.45 && fg[i] <= 68.89 ){
+tg[i] = 2.75;
+}
+else if(fg[i] >= 68.90 && fg[i] <= 73.33 ){
+tg[i] = 2.50;
+}
+else if(fg[i] >= 73.34 && fg[i] <= 77.78 ){
+tg[i] = 2.25;
+}
+else if(fg[i] >= 77.79 && fg[i] <= 82.22 ){
+tg[i] = 2.00;
+}
+else if(fg[i] >= 82.23 && fg[i] <= 86.67 ){
+tg[i] = 1.75;
+}
+else if(fg[i] >= 86.68 && fg[i] <= 91.11 ){
+tg[i] = 1.50;
+}
+else if(fg[i] >= 91.12 && fg[i] <= 96.56 ){
+tg[i] = 1.25;
+}
+else if(fg[i] >= 95.57 ){
+tg[i] = 1.00;
+}
+else{
+tg[i] = 5.00;
+}
+}
+cout<<endl;
+cout<<"Name : "<<"\t\t\t"<<"Final Grade : "<<"\t\t"<<"Transmutated Graded : "<<"\t\t"<<"Passed/Failed"<<endl;
+for(int i=0; i<totalstudents; i++){
+cout<<fixed<<setprecision(2)<<left;
+cout<<name[i]<<"\t\t\t"<<fg[i]<<"\t\t\t"<<tg[i]<<"\t\t\t";
+if(tg[i] <= 3){
+cout<<"Passed"<<endl;
+}else{
+cout<<"Failed"<<endl;
+}
+}
+for(int i=0; i<totalstudents-1; i++){
+for(int j= i+1; j<totalstudents; j++){
+if(fg[i] < fg[j]){
+string temp1 = name[i];
+name[i] = name[j];
+name[j] = temp1;
+double temp2 = fg[i];
+fg[i] = fg[j];
+fg[j] = temp2;
+}
+}
+}
+for(int i=0; i<10; i++){
+cout<<"Top Students"<<i+1<<" :"<<name[i]<<endl;
+}
+return 0;
+
+}
